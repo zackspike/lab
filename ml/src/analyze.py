@@ -7,7 +7,7 @@ Without a trained model (ml/models/model.joblib) it degrades to rules only.
 from __future__ import annotations
 
 from ml.src import headline, model, quotes, rules
-from ml.src.templates import render
+from ml.src.templates import render, render_headline
 from ml.src.text import segment
 
 RULE_CONFIDENCE = 0.9  # ponytail: rules-only precision measured on the seed (ml/reports/metricas.md); recompute with real data
@@ -29,9 +29,10 @@ def analyze(text: str) -> list[dict]:
     out: list[dict] = []
 
     for s in (s for s in sentences if s.is_headline):
-        for a, b, _ in headline.find(s.text):
-            out.append(_fragment(text, s.start + a, s.start + b, "sensacionalismo", "sensacionalismo",
-                                 RULE_CONFIDENCE, "regla"))
+        for a, b, reasons in headline.find(s.text):
+            out.append({"texto": text[s.start + a:s.start + b], "inicio": s.start + a, "fin": s.start + b,
+                        "categoria": "sensacionalismo", **render_headline(reasons),
+                        "confianza": RULE_CONFIDENCE, "origen": "regla"})
 
     body = [s for s in sentences if not s.is_headline]
     if body:

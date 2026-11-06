@@ -57,9 +57,33 @@ TEMPLATES: dict[str, tuple[str, str, str, str]] = {
         "El sensacionalismo convierte la violencia en espectáculo y vulnera la dignidad de la víctima.",
         "Titular con los hechos de forma sobria: qué ocurrió, dónde y el estado de la investigación.",
         "#categorías"),
+    # headline-only reasons (category is always sensacionalismo)
+    "ortografia_disfrazada": (
+        "El titular disfraza palabras violentas con números o símbolos (p. ej. 'As3sin4d4').",
+        "Este recurso busca evadir la moderación en redes para viralizar el hecho violento.",
+        "Escribir los términos correctamente y con sobriedad; nombrar el feminicidio como tal.",
+        "#categorías"),
+    "emoji_violento": (
+        "El titular usa emojis de armas, sangre o impacto que dramatizan la violencia.",
+        "Los emojis convierten el hecho violento en contenido de impacto emocional y lo trivializan.",
+        "Prescindir de emojis en notas sobre violencia.",
+        "#categorías"),
+    "mayusculas": (
+        "El titular está escrito en mayúsculas, un recurso de alarma y dramatización.",
+        "Las mayúsculas buscan impacto emocional y suelen acompañar una narración espectacularizada del hecho.",
+        "Usar mayúsculas solo donde la ortografía lo requiera y un tono informativo.",
+        "#categorías"),
 }
 
+
 QUOTE_NOTE = " La nota reproduce la cita sin contrastarla."
+
+
+def render_headline(reasons: list[str]) -> dict:
+    """Combine every reason that fired on the same headline span."""
+    out = render(reasons[0])
+    out["justificacion"] = " ".join(TEMPLATES[r][0] for r in reasons)
+    return out
 
 
 def render(key: str, stance: str = "no_cita") -> dict:

@@ -15,8 +15,12 @@ Ver `docs/algoritmo.md`.
 ```
 pip install -r ml/requirements.txt -r ml/requirements-dev.txt
 python -m spacy download es_core_news_md
-python -m ml.src.prepare ml/data/raw/        # notas -> CSV para etiquetar
+python -m ml.src.prepare ml/data/raw/        # notas -> CSV para etiquetar (con sugerencias)
+python -m ml.src.prepare ml/data/raw/prueba/ -o ml/data/labeled/prueba.csv --sin-sugerencias
 python -m ml.src.train                       # entrena + ml/reports/metricas.md
 python -m ml.src.train --kappa a.csv b.csv   # acuerdo entre anotadores
-pytest ml/tests
+pytest ml/tests backend/tests
 ```
+
+> El modelo entrenado (`ml/models/model.joblib`) no se versiona: después de clonar, ejecutar `python -m ml.src.train`.
+> Sin modelo, la API funciona igual pero solo con reglas.

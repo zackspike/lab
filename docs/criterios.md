@@ -62,6 +62,8 @@ Todo lo que se marca en el titular sale como `sensacionalismo`; la justificació
 
 ## Guía de etiquetado (para el dataset)
 - Unidad: oración. Generar la plantilla con `python -m ml.src.prepare ml/data/raw/`.
+- La plantilla trae la sugerencia del sistema en columnas `sug_*` (categoría, fragmento, postura, confianza, origen). Las columnas de etiqueta quedan vacías: **decidan ustedes** y copien la sugerencia solo si están de acuerdo.
+- Notas reservadas para la prueba final: guardarlas en `ml/data/raw/prueba/` y generarlas aparte con `python -m ml.src.prepare ml/data/raw/prueba/ -o ml/data/labeled/prueba.csv --sin-sugerencias` para que la sugerencia no influya en su etiqueta.
 - Columnas: `id, nota, idx, es_titulo, texto, categoria, fragmento, postura_cita, justificacion, etiquetador`.
   - `categoria`: uno de los identificadores de arriba (vacío = `ninguna`).
   - `fragmento`: copia exacta del trozo problemático (opcional; vacío = toda la oración).

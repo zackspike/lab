@@ -21,6 +21,8 @@ MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "model.joblib"
 NONE = "ninguna"
 BODY_CATEGORIES = [rules.R, rules.J, rules.D]
 TARGET_PRECISION = 0.8
+# empty template and the reserved final-test notes never go into training
+EXCLUDED_FILES = {"por_etiquetar.csv", "prueba.csv"}
 
 
 @lru_cache(maxsize=1)
@@ -41,7 +43,7 @@ def load_dataset(paths: list[Path] | None = None, headlines: bool = False) -> pd
 
     Body only by default; headlines=True returns only the headline rows. `fuente` = source file stem.
     """
-    paths = paths or [p for p in sorted(LABELED_DIR.glob("*.csv")) if p.name != "por_etiquetar.csv"]
+    paths = paths or [p for p in sorted(LABELED_DIR.glob("*.csv")) if p.name not in EXCLUDED_FILES]
     df = pd.concat([pd.read_csv(p, encoding="utf-8-sig", dtype=str).assign(fuente=p.stem) for p in paths],
                    ignore_index=True)
     df["categoria"] = df["categoria"].fillna("").str.strip().replace("", NONE)

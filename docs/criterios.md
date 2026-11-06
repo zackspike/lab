@@ -1,6 +1,6 @@
 # Criterios: definición y categorías
 
-> BORRADOR para el hackathon. Debe revisarlo el equipo (idealmente con apoyo de alguien con experiencia en perspectiva de género) y citar fuentes antes de la presentación.
+> BORRADOR. Pendiente de revisión.
 
 ## Revictimización (victimización secundaria)
 Nuevo daño o refuerzo del daño sufrido por una persona sobreviviente de violencia, causado no por el agresor sino por el trato, el discurso o las prácticas que la rodean (medios, instituciones, entorno). En una nota periodística aparece cuando el texto:

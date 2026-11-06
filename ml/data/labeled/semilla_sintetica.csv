@@ -1,0 +1,158 @@
+﻿id,nota,idx,es_titulo,texto,categoria,fragmento,postura_cita,justificacion,etiquetador
+t00-0,t00,0,1,Macabro hallazgo: encuentran a mujer brutalmente asesinada,sensacionalismo,Macabro hallazgo,no_cita,,semilla
+t01-0,t01,0,1,Escalofriante crimen en la colonia Centro,sensacionalismo,Escalofriante crimen,no_cita,,semilla
+t02-0,t02,0,1,Investigan feminicidio de mujer de 24 años en Mérida,ninguna,,no_cita,,semilla
+t03-0,t03,0,1,Detienen a presunto feminicida en Valladolid,ninguna,,no_cita,,semilla
+s000-0,s000,0,0,La joven salía sola de madrugada y vestía provocativamente.,revictimizacion,vestía provocativamente,no_cita,,semilla
+s001-0,s001,0,0,La víctima había consumido alcohol y caminaba sola por un lugar indebido.,revictimizacion,caminaba sola por un lugar indebido,no_cita,,semilla
+s002-0,s002,0,0,La supuesta víctima no presentó pruebas de la agresión.,revictimizacion,supuesta víctima,no_cita,,semilla
+s003-0,s003,0,0,"La presunta víctima dijo haber sido atacada, aunque nadie la escuchó gritar.",revictimizacion,presunta víctima,no_cita,,semilla
+s004-0,s004,0,0,La estudiante acostumbraba ir a fiestas y regresar tarde a casa.,revictimizacion,,no_cita,,semilla
+s005-0,s005,0,0,Se informó que la mujer tenía varias parejas y una vida nocturna activa.,revictimizacion,tenía varias parejas y una vida nocturna activa,no_cita,,semilla
+s006-0,s006,0,0,"La joven no avisó a su familia a dónde iba, lo que facilitó el ataque.",revictimizacion,lo que facilitó el ataque,no_cita,,semilla
+s007-0,s007,0,0,"De haber estado en casa, la tragedia se habría evitado.",revictimizacion,,no_cita,,semilla
+s008-0,s008,0,0,La mujer aceptó subir al vehículo de un desconocido.,revictimizacion,,no_cita,,semilla
+s009-0,s009,0,0,La joven había publicado fotografías provocativas en redes sociales.,revictimizacion,fotografías provocativas,no_cita,,semilla
+s010-0,s010,0,0,Familiares reconocieron que la menor era rebelde y se escapaba con frecuencia.,revictimizacion,era rebelde y se escapaba con frecuencia,no_cita,,semilla
+s011-0,s011,0,0,La víctima regresaba de una fiesta en estado de ebriedad cuando fue atacada.,revictimizacion,en estado de ebriedad,no_cita,,semilla
+s012-0,s012,0,0,"La mujer no denunció antes, lo que pone en duda su relato.",revictimizacion,lo que pone en duda su relato,no_cita,,semilla
+s013-0,s013,0,0,"Por andar sola en la calle a esas horas, la joven fue interceptada por el agresor.",revictimizacion,Por andar sola,no_cita,,semilla
+s014-0,s014,0,0,La víctima conocía a su agresor y aun así decidió verlo.,revictimizacion,aun así decidió verlo,no_cita,,semilla
+s015-0,s015,0,0,Se trataba de una mujer que vestía minifalda y frecuentaba centros nocturnos.,revictimizacion,,no_cita,,semilla
+s016-0,s016,0,0,La adolescente mantenía una relación con un hombre mayor sin permiso de sus padres.,revictimizacion,,no_cita,,semilla
+s017-0,s017,0,0,"La joven, que vive en la calle Sauce número 14 de la colonia Jardines, relató el abuso.",revictimizacion,vive en la calle Sauce número 14 de la colonia Jardines,no_cita,,semilla
+s018-0,s018,0,0,La mujer ya había sido detenida por faltas administrativas años atrás.,revictimizacion,,no_cita,,semilla
+s019-0,s019,0,0,La víctima provocó la discusión al revisar el teléfono de su pareja.,revictimizacion,provocó la discusión,no_cita,,semilla
+s020-0,s020,0,0,Ella se lo buscó al quedarse en la fiesta hasta tan tarde.,revictimizacion,se lo buscó,no_cita,,semilla
+s021-0,s021,0,0,La joven se expuso al salir con un hombre que apenas conocía.,revictimizacion,se expuso,no_cita,,semilla
+s022-0,s022,0,0,El hombre la atacó en un arrebato de celos.,justificacion_agresor,en un arrebato de celos,no_cita,,semilla
+s023-0,s023,0,0,"El agresor era un hombre trabajador y respetable, muy querido en el barrio.",justificacion_agresor,un hombre trabajador y respetable,no_cita,,semilla
+s024-0,s024,0,0,"Lo hizo por amor, pues no soportaba la idea de perderla.",justificacion_agresor,Lo hizo por amor,no_cita,,semilla
+s025-0,s025,0,0,El sujeto perdió el control tras enterarse de una supuesta infidelidad.,justificacion_agresor,perdió el control,no_cita,,semilla
+s026-0,s026,0,0,Vecinos lo describen como un buen padre que nunca había dado problemas.,justificacion_agresor,un buen padre,no_cita,,semilla
+s027-0,s027,0,0,La tragedia amorosa conmocionó a la comunidad.,justificacion_agresor,tragedia amorosa,no_cita,,semilla
+s028-0,s028,0,0,"El hombre, desesperado por la separación, terminó con la vida de su esposa.",justificacion_agresor,desesperado por la separación,no_cita,,semilla
+s029-0,s029,0,0,Fue un drama pasional que terminó en tragedia.,justificacion_agresor,drama pasional,no_cita,,semilla
+s030-0,s030,0,0,El agresor actuó cegado por los celos.,justificacion_agresor,cegado por los celos,no_cita,,semilla
+s031-0,s031,0,0,Era un hombre ejemplar que no supo manejar el rechazo.,justificacion_agresor,un hombre ejemplar,no_cita,,semilla
+s032-0,s032,0,0,"El presunto responsable estaba bajo los efectos del alcohol, lo que explicaría su reacción.",justificacion_agresor,lo que explicaría su reacción,no_cita,,semilla
+s033-0,s033,0,0,"La mujer lo había humillado frente a sus amigos, por lo que él reaccionó con violencia.",justificacion_agresor,por lo que él reaccionó con violencia,no_cita,,semilla
+s034-0,s034,0,0,"El homicida, un tranquilo vecino dedicado a su familia, fue detenido ayer.",justificacion_agresor,un tranquilo vecino dedicado a su familia,no_cita,,semilla
+s035-0,s035,0,0,La amaba tanto que no soportó verla con otro.,justificacion_agresor,,no_cita,,semilla
+s036-0,s036,0,0,La discusión subió de tono y el hombre no pudo contenerse.,justificacion_agresor,no pudo contenerse,no_cita,,semilla
+s037-0,s037,0,0,Se trató de un crimen pasional entre dos personas que se querían.,justificacion_agresor,crimen pasional,no_cita,,semilla
+s038-0,s038,0,0,"Como todo trans, estaba involucrado en ambientes peligrosos.",discriminacion_estigmatizacion,Como todo trans,no_cita,,semilla
+s039-0,s039,0,0,La prostituta fue hallada sin vida en un hotel del centro.,discriminacion_estigmatizacion,La prostituta,no_cita,,semilla
+s040-0,s040,0,0,El travesti fue encontrado en un terreno baldío.,discriminacion_estigmatizacion,El travesti,no_cita,,semilla
+s041-0,s041,0,0,Las mujeres de ese ambiente suelen terminar así.,discriminacion_estigmatizacion,,no_cita,,semilla
+s042-0,s042,0,0,"La sexoservidora, conocida por su vida desordenada, fue localizada el domingo.",discriminacion_estigmatizacion,conocida por su vida desordenada,no_cita,,semilla
+s043-0,s043,0,0,"La víctima, una migrante indocumentada, era de las que se exponen a esos riesgos.",discriminacion_estigmatizacion,era de las que se exponen a esos riesgos,no_cita,,semilla
+s044-0,s044,0,0,El homosexual fue asesinado en su departamento.,discriminacion_estigmatizacion,El homosexual,no_cita,,semilla
+s045-0,s045,0,0,"Como es común entre las parejas lésbicas, la relación era conflictiva.",discriminacion_estigmatizacion,Como es común entre las parejas lésbicas,no_cita,,semilla
+s046-0,s046,0,0,"La occisa, una mujer de la vida galante, fue identificada por sus familiares.",discriminacion_estigmatizacion,una mujer de la vida galante,no_cita,,semilla
+s047-0,s047,0,0,Era bien sabido que las mujeres de esa colonia no se dan a respetar.,discriminacion_estigmatizacion,las mujeres de esa colonia no se dan a respetar,no_cita,,semilla
+s048-0,s048,0,0,El hombre vestido de mujer fue hallado sin vida.,discriminacion_estigmatizacion,El hombre vestido de mujer,no_cita,,semilla
+s049-0,s049,0,0,"La víctima, una empleada doméstica sin estudios, fue atacada en la casa donde trabajaba.",discriminacion_estigmatizacion,sin estudios,no_cita,,semilla
+s050-0,s050,0,0,Las personas de la diversidad suelen llevar una vida de excesos.,discriminacion_estigmatizacion,,no_cita,,semilla
+s051-0,s051,0,0,"La joven indígena, ignorante de sus derechos, no supo pedir ayuda.",discriminacion_estigmatizacion,ignorante de sus derechos,no_cita,,semilla
+s052-0,s052,0,0,"“Ella se lo buscó por vestirse así”, declaró un vecino.",ninguna,,desmiente,,semilla
+s052-1,s052,1,0,"Sin embargo, especialistas advierten que la vestimenta nunca justifica una agresión.",ninguna,,no_cita,,semilla
+s053-0,s053,0,0,"“Fue un crimen pasional”, afirmó el fiscal del caso.",justificacion_agresor,crimen pasional,sin_postura,,semilla
+s053-1,s053,1,0,El cuerpo fue trasladado al Servicio Médico Forense.,ninguna,,no_cita,,semilla
+s054-0,s054,0,0,"“Fue un crimen pasional”, dijo el abogado defensor.",ninguna,,desmiente,,semilla
+s054-1,s054,1,0,"No obstante, la fiscalía descartó esa versión y lo investiga como feminicidio.",ninguna,,no_cita,,semilla
+s055-0,s055,0,0,"Según la madre del detenido, la joven lo provocaba constantemente.",revictimizacion,la joven lo provocaba constantemente,avala,,semilla
+s055-1,s055,1,0,"Efectivamente, la joven lo provocaba con frecuencia, confirmaron vecinos.",revictimizacion,la joven lo provocaba con frecuencia,no_cita,,semilla
+s056-0,s056,0,0,"“La mujer era muy celosa y lo volvía loco”, declaró un familiar del agresor.",ninguna,,desmiente,,semilla
+s056-1,s056,1,0,Colectivas feministas señalaron que estos argumentos buscan justificar la violencia.,ninguna,,no_cita,,semilla
+s057-0,s057,0,0,"“Ella estaba en el lugar equivocado”, comentó un policía.",revictimizacion,Ella estaba en el lugar equivocado,sin_postura,,semilla
+s057-1,s057,1,0,La mujer tenía 31 años.,ninguna,,no_cita,,semilla
+s058-0,s058,0,0,"Según fuentes policiacas, se trata de una mujer de dudosa reputación.",discriminacion_estigmatizacion,una mujer de dudosa reputación,sin_postura,,semilla
+s059-0,s059,0,0,"Según las primeras investigaciones, el hombre la mató en un arrebato de celos.",justificacion_agresor,en un arrebato de celos,sin_postura,,semilla
+s060-0,s060,0,0,"“No vamos a descansar hasta encontrar justicia”, declaró la madre de la víctima.",ninguna,,sin_postura,,semilla
+s061-0,s061,0,0,"“Exigimos que se investigue con perspectiva de género”, dijo la activista.",ninguna,,sin_postura,,semilla
+s062-0,s062,0,0,"“Era un buen muchacho”, aseguró la vecina del detenido.",ninguna,,desmiente,,semilla
+s062-1,s062,1,0,"Sin embargo, la víctima ya lo había denunciado dos veces por violencia familiar.",ninguna,,no_cita,,semilla
+s063-0,s063,0,0,"No se trató de un crimen pasional, sino de un feminicidio, señaló la fiscalía.",ninguna,,no_cita,,semilla
+s064-0,s064,0,0,La investigación descarta que se trate de un crimen pasional.,ninguna,,no_cita,,semilla
+s065-0,s065,0,0,"Llamarlo crimen pasional minimiza la violencia, advirtieron periodistas.",ninguna,,no_cita,,semilla
+s066-0,s066,0,0,Organizaciones pidieron a los medios no usar el término crimen pasional.,ninguna,,no_cita,,semilla
+s067-0,s067,0,0,"Los celos no justifican ninguna forma de violencia, recordaron especialistas.",ninguna,,no_cita,,semilla
+s068-0,s068,0,0,"No hay justificación para la violencia, ni los celos ni el alcohol.",ninguna,,no_cita,,semilla
+s069-0,s069,0,0,Ninguna mujer se lo busca: la responsabilidad es siempre del agresor.,ninguna,,no_cita,,semilla
+s070-0,s070,0,0,Vestir de cualquier forma no es una invitación a la violencia.,ninguna,,no_cita,,semilla
+s071-0,s071,0,0,"La víctima no tenía ninguna responsabilidad en lo ocurrido, subrayó la fiscal.",ninguna,,no_cita,,semilla
+s072-0,s072,0,0,La fiscalía investiga el caso como feminicidio.,ninguna,,no_cita,,semilla
+s073-0,s073,0,0,El presunto agresor fue detenido y puesto a disposición de un juez.,ninguna,,no_cita,,semilla
+s074-0,s074,0,0,El presunto responsable permanece en prisión preventiva.,ninguna,,no_cita,,semilla
+s075-0,s075,0,0,El presunto feminicida será presentado ante el juez de control.,ninguna,,no_cita,,semilla
+s076-0,s076,0,0,"La víctima, de 24 años, fue hallada el lunes en su domicilio.",ninguna,,no_cita,,semilla
+s077-0,s077,0,0,La mujer había denunciado previamente al agresor por violencia familiar.,ninguna,,no_cita,,semilla
+s078-0,s078,0,0,Colectivos feministas convocaron a una marcha para exigir justicia.,ninguna,,no_cita,,semilla
+s079-0,s079,0,0,La Fiscalía General del Estado abrió una carpeta de investigación.,ninguna,,no_cita,,semilla
+s080-0,s080,0,0,La víctima era estudiante de enfermería.,ninguna,,no_cita,,semilla
+s081-0,s081,0,0,Familiares la describieron como una joven alegre y dedicada a sus estudios.,ninguna,,no_cita,,semilla
+s082-0,s082,0,0,El agresor tenía antecedentes de violencia contra otras parejas.,ninguna,,no_cita,,semilla
+s083-0,s083,0,0,La joven trabajaba en una tienda de conveniencia.,ninguna,,no_cita,,semilla
+s084-0,s084,0,0,Las autoridades activaron la alerta Alba tras su desaparición.,ninguna,,no_cita,,semilla
+s085-0,s085,0,0,El cuerpo fue trasladado al Servicio Médico Forense.,ninguna,,no_cita,,semilla
+s086-0,s086,0,0,"Las mujeres trans enfrentan altos índices de violencia, según organizaciones civiles.",ninguna,,no_cita,,semilla
+s087-0,s087,0,0,La organización documentó 30 transfeminicidios en el último año.,ninguna,,no_cita,,semilla
+s088-0,s088,0,0,"La víctima era una mujer trans de 28 años, activista por los derechos de la diversidad sexual.",ninguna,,no_cita,,semilla
+s089-0,s089,0,0,Las trabajadoras sexuales exigieron protección ante la ola de agresiones.,ninguna,,no_cita,,semilla
+s090-0,s090,0,0,La víctima era trabajadora sexual y defensora de los derechos laborales de sus compañeras.,ninguna,,no_cita,,semilla
+s091-0,s091,0,0,El detenido deberá enfrentar un proceso por el delito de feminicidio.,ninguna,,no_cita,,semilla
+s092-0,s092,0,0,La defensa del imputado solicitó una prórroga.,ninguna,,no_cita,,semilla
+s093-0,s093,0,0,El juez vinculó a proceso al acusado.,ninguna,,no_cita,,semilla
+s094-0,s094,0,0,"Si usted o alguien que conoce vive violencia, puede llamar a la Línea Mujeres.",ninguna,,no_cita,,semilla
+s095-0,s095,0,0,Vecinos escucharon gritos alrededor de las once de la noche.,ninguna,,no_cita,,semilla
+s096-0,s096,0,0,La policía municipal acudió al lugar tras una llamada de emergencia.,ninguna,,no_cita,,semilla
+s097-0,s097,0,0,El agresor huyó del lugar y fue capturado horas después.,ninguna,,no_cita,,semilla
+s098-0,s098,0,0,"La mujer acudió al hospital, donde recibió atención médica.",ninguna,,no_cita,,semilla
+s099-0,s099,0,0,Especialistas recuerdan que el feminicidio es la expresión más extrema de la violencia de género.,ninguna,,no_cita,,semilla
+s100-0,s100,0,0,El caso se suma a los 12 feminicidios registrados en el estado este año.,ninguna,,no_cita,,semilla
+s101-0,s101,0,0,La joven salió de su trabajo y no volvió a casa.,ninguna,,no_cita,,semilla
+s102-0,s102,0,0,La víctima regresaba a su domicilio cuando fue atacada.,ninguna,,no_cita,,semilla
+s103-0,s103,0,0,La víctima caminaba hacia la parada del autobús cuando fue interceptada.,ninguna,,no_cita,,semilla
+s104-0,s104,0,0,La mujer denunció la agresión ante el Ministerio Público.,ninguna,,no_cita,,semilla
+s105-0,s105,0,0,La sobreviviente recibe acompañamiento psicológico.,ninguna,,no_cita,,semilla
+s106-0,s106,0,0,"La pareja tenía dos hijos, que quedaron bajo el cuidado de sus abuelos.",ninguna,,no_cita,,semilla
+s107-0,s107,0,0,Las autoridades no han revelado la identidad de la víctima para proteger su privacidad.,ninguna,,no_cita,,semilla
+s108-0,s108,0,0,La Comisión de Derechos Humanos emitió un pronunciamiento sobre el caso.,ninguna,,no_cita,,semilla
+s109-0,s109,0,0,El agresor fue identificado como expareja de la víctima.,ninguna,,no_cita,,semilla
+s110-0,s110,0,0,El hombre fue detenido mientras intentaba huir del estado.,ninguna,,no_cita,,semilla
+s111-0,s111,0,0,La necropsia determinó que la causa de muerte fue asfixia.,ninguna,,no_cita,,semilla
+s112-0,s112,0,0,La familia exige que el caso se investigue con perspectiva de género.,ninguna,,no_cita,,semilla
+s113-0,s113,0,0,El crimen ocurrió en la colonia Centro de la ciudad.,ninguna,,no_cita,,semilla
+s114-0,s114,0,0,Testigos señalaron que el agresor la amenazaba desde hacía meses.,ninguna,,no_cita,,semilla
+s115-0,s115,0,0,La víctima había solicitado medidas de protección.,ninguna,,no_cita,,semilla
+s116-0,s116,0,0,Las medidas de protección no fueron ejecutadas a tiempo.,ninguna,,no_cita,,semilla
+s117-0,s117,0,0,El gobierno estatal anunció más patrullajes en la zona.,ninguna,,no_cita,,semilla
+s118-0,s118,0,0,La universidad lamentó la muerte de su estudiante.,ninguna,,no_cita,,semilla
+s119-0,s119,0,0,El acusado conocía a la víctima desde la infancia.,ninguna,,no_cita,,semilla
+s120-0,s120,0,0,La mujer desapareció el viernes por la tarde.,ninguna,,no_cita,,semilla
+s121-0,s121,0,0,Sus compañeras organizaron una vigilia en su memoria.,ninguna,,no_cita,,semilla
+s122-0,s122,0,0,La fiscalía informó que el detenido confesó el crimen.,ninguna,,no_cita,,semilla
+s123-0,s123,0,0,El agresor utilizó un arma punzocortante.,ninguna,,no_cita,,semilla
+s124-0,s124,0,0,La víctima tenía 17 años y cursaba el bachillerato.,ninguna,,no_cita,,semilla
+s125-0,s125,0,0,El ataque ocurrió dentro del domicilio que compartían.,ninguna,,no_cita,,semilla
+s126-0,s126,0,0,La activista trans fue recordada por su labor comunitaria.,ninguna,,no_cita,,semilla
+s127-0,s127,0,0,El colectivo LGBT+ exigió justicia para su compañero.,ninguna,,no_cita,,semilla
+s128-0,s128,0,0,"El joven, de 22 años, era abiertamente gay y estudiaba diseño.",ninguna,,no_cita,,semilla
+s129-0,s129,0,0,La mujer era migrante y trabajaba en el sector agrícola.,ninguna,,no_cita,,semilla
+s130-0,s130,0,0,La joven era indígena maya y estudiaba derecho.,ninguna,,no_cita,,semilla
+s131-0,s131,0,0,El hombre se entregó a las autoridades dos días después.,ninguna,,no_cita,,semilla
+s132-0,s132,0,0,La fiscal explicó que el agresor tenía una orden de restricción.,ninguna,,no_cita,,semilla
+s133-0,s133,0,0,El Instituto de las Mujeres ofreció apoyo a la familia.,ninguna,,no_cita,,semilla
+s134-0,s134,0,0,"El cuerpo presentaba huellas de violencia, informó la fiscalía.",ninguna,,no_cita,,semilla
+s135-0,s135,0,0,Las autoridades reportaron que el agresor estaba alcoholizado al momento de la detención.,ninguna,,no_cita,,semilla
+s136-0,s136,0,0,El agresor fue descrito por la fiscalía como un hombre con antecedentes violentos.,ninguna,,no_cita,,semilla
+s137-0,s137,0,0,La joven había acudido a una reunión con amigas.,ninguna,,no_cita,,semilla
+s138-0,s138,0,0,Un vecino grabó el momento de la detención.,ninguna,,no_cita,,semilla
+s139-0,s139,0,0,El caso ha generado indignación en redes sociales.,ninguna,,no_cita,,semilla
+s140-0,s140,0,0,La madre de la víctima pidió que no se difundieran imágenes de su hija.,ninguna,,no_cita,,semilla
+s141-0,s141,0,0,Periodistas recibieron capacitación sobre cobertura de violencia de género.,ninguna,,no_cita,,semilla
+s142-0,s142,0,0,El juez dictó sentencia de 50 años de prisión.,ninguna,,no_cita,,semilla
+s143-0,s143,0,0,El agresor tenía 35 años y trabajaba como taxista.,ninguna,,no_cita,,semilla
+s144-0,s144,0,0,El detenido trabajaba en una empresa de construcción.,ninguna,,no_cita,,semilla
+s145-0,s145,0,0,"La víctima conocía a su agresor, quien era su vecino.",ninguna,,no_cita,,semilla

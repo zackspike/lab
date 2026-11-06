@@ -1,10 +1,9 @@
-import io
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from pypdf import PdfReader
 
-from ml.src.analizar import analizar
+from ml.src.analyze import analyze
+from ml.src.text import normalize, read_file
 
 app = FastAPI(title="Algoretica API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
@@ -14,11 +13,12 @@ class Entrada(BaseModel):
     texto: str
 
 
-def _responder(texto: str):
-    texto = texto.strip()
-    if not texto:
+def _respond(text: str):
+    text = normalize(text)
+    if not text:
         raise HTTPException(400, "Texto vacío")
-    return {"texto": texto, "fragmentos": analizar(texto)}
+    # offsets refer to the normalized text, so return that same text
+    return {"texto": text, "fragmentos": analyze(text)}
 
 
 @app.get("/api/health")
@@ -27,15 +27,10 @@ def health():
 
 
 @app.post("/api/analizar")
-def analizar_texto(entrada: Entrada):
-    return _responder(entrada.texto)
+def analyze_text(entrada: Entrada):
+    return _respond(entrada.texto)
 
 
 @app.post("/api/analizar/archivo")
-async def analizar_archivo(archivo: UploadFile = File(...)):
-    data = await archivo.read()
-    if archivo.filename.lower().endswith(".pdf"):
-        texto = "\n".join(p.extract_text() or "" for p in PdfReader(io.BytesIO(data)).pages)
-    else:
-        texto = data.decode("utf-8", errors="ignore")
-    return _responder(texto)
+async def analyze_file(archivo: UploadFile = File(...)):
+    return _respond(read_file(archivo.filename or "", await archivo.read()))

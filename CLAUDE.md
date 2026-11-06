@@ -28,18 +28,18 @@ algoretica/
 ├── ml/                    # LIBRERÍA de análisis (no es un servicio)
 │   ├── data/{raw,labeled}
 │   ├── notebooks/         # EDA y experimentos
-│   └── src/               # preprocesamiento, reglas, modelo, analizar()
+│   └── src/               # preprocesamiento, reglas, modelo, analyze()
 ├── backend/app/           # FastAPI; importa `ml.src` y expone endpoints
 └── frontend/              # UI: texto con fragmentos resaltados + panel de detalle
 ```
 
 ## Contrato central
-`ml.src.analizar(texto: str) -> list[Fragmento]` y `POST /api/analizar` (ver `docs/api.md`).
+`ml.src.analyze.analyze(text: str) -> list[dict]` y `POST /api/analizar` (ver `docs/api.md`).
 Si cambias el formato, actualiza `docs/api.md`, backend y frontend juntos.
 
 ## Enfoque técnico (híbrido, por tiempo)
 1. Segmentar el texto en oraciones (spaCy `es_core_news_md`), conservando offsets.
-2. **Reglas/diccionario** de patrones documentados (`ml/src/reglas.py`) → alta precisión y justificación fiable.
+2. **Reglas/diccionario** de patrones documentados (`ml/src/rules.py`) → alta precisión y justificación fiable.
 3. **Clasificador a nivel de oración**: embeddings multilingües (`paraphrase-multilingual-MiniLM-L12-v2`) + regresión logística. Baseline TF-IDF primero.
 4. Combinar reglas + modelo; la justificación sale de plantillas por categoría citando el criterio.
 5. Fine-tuning (BETO / XLM-R) solo si sobra tiempo y hay GPU.

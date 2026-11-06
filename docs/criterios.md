@@ -37,7 +37,7 @@ Cuando la nota reproduce lo dicho por otra persona (entre comillas, "según X", 
 | `desmiente` | La nota la contradice o contextualiza ("sin embargo", "especialistas advierten", "la fiscalía descartó") | No se marca |
 | `no_cita` | La oración no es una cita | — |
 
-## Patrones iniciales (para `ml/src/reglas.py`)
+## Patrones iniciales (para `ml/src/rules.py`)
 - Culpa a la víctima: "por andar sola", "vestía provocativamente", "se lo buscó", "estaba en un lugar indebido".
 - Credibilidad: "supuesta/presunta víctima", "según ella" sin contexto judicial.
 - Romantización: "crimen pasional", "arrebato de celos", "por amor".
@@ -50,10 +50,10 @@ Cuando la nota reproduce lo dicho por otra persona (entre comillas, "según X", 
 - Fuentes bibliográficas y normativas de estos criterios.
 
 ## Guía de etiquetado (para el dataset)
-- Unidad: oración. Generar la plantilla con `python -m ml.src.preparar ml/data/raw/`.
+- Unidad: oración. Generar la plantilla con `python -m ml.src.prepare ml/data/raw/`.
 - Columnas: `id, nota, idx, es_titulo, texto, categoria, fragmento, postura_cita, justificacion, etiquetador`.
   - `categoria`: uno de los identificadores de arriba (vacío = `ninguna`).
   - `fragmento`: copia exacta del trozo problemático (opcional; vacío = toda la oración).
   - `postura_cita`: `no_cita`, `avala`, `sin_postura` o `desmiente`.
 - Anonimizar: reemplazar nombres reales de víctimas por `[NOMBRE]` antes de commitear.
-- Dos personas etiquetan una muestra común; se reporta la kappa de Cohen (`python -m ml.src.entrenar --kappa a.csv b.csv`).
+- Dos personas etiquetan una muestra común; se reporta la kappa de Cohen (`python -m ml.src.train --kappa a.csv b.csv`).

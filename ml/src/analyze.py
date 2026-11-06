@@ -20,10 +20,10 @@ REGLAS = [
 ]
 
 
-def analizar(texto: str) -> list[dict]:
+def analyze(text: str) -> list[dict]:
     fragmentos = []
     for patron, cat, just, ctx, alt in REGLAS:
-        for m in re.finditer(patron, texto, flags=re.IGNORECASE):
+        for m in re.finditer(patron, text, flags=re.IGNORECASE):
             fragmentos.append({
                 "id": f"f{len(fragmentos) + 1}",
                 "texto": m.group(0),

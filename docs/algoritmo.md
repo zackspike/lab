@@ -11,20 +11,20 @@ texto/PDF → normalizar + segmentar (offsets) ─┬→ titular → sensacional
                               embeddings MiniLM      ┘
 ```
 
-1. **Ingesta y normalización** (`ml/src/texto.py`). PDF → texto con `pypdf`; Unicode NFC, unión de palabras cortadas por guion, espacios colapsados. Todos los offsets se calculan sobre este texto normalizado, que es el que devuelve la API.
+1. **Ingesta y normalización** (`ml/src/text.py`). PDF → texto con `pypdf`; Unicode NFC, unión de palabras cortadas por guion, espacios colapsados. Todos los offsets se calculan sobre este texto normalizado, que es el que devuelve la API.
 2. **Segmentación**. spaCy `es_core_news_md` → oraciones con `inicio/fin`, lemas, dependencias y entidades. La primera línea es el titular.
-3. **Reglas** (`ml/src/reglas.py`). Patrones por lema (spaCy `Matcher`) agrupados en familias. Guardas de contexto: negación cercana ("no fue un crimen pasional") y análisis de dependencias ("presunta víctima" ≠ "presunto agresor").
-4. **Citas** (`ml/src/citas.py`). Detecta discurso referido y estima la postura de la nota (avala / sin postura / desmiente) buscando señales en la oración y las dos siguientes.
-5. **Modelo** (`ml/src/modelo.py`).
+3. **Reglas** (`ml/src/rules.py`). Patrones por lema (spaCy `Matcher`) agrupados en familias. Guardas de contexto: negación cercana ("no fue un crimen pasional") y análisis de dependencias ("presunta víctima" ≠ "presunto agresor").
+4. **Citas** (`ml/src/quotes.py`). Detecta discurso referido y estima la postura de la nota (avala / sin postura / desmiente) buscando señales en la oración y las dos siguientes.
+5. **Modelo** (`ml/src/model.py`).
    - Representación: embedding multilingüe `paraphrase-multilingual-MiniLM-L12-v2` de *oración previa + oración* (contexto), concatenado con flags de reglas y features de cita.
    - Etapa 1: regresión logística binaria (problemática / no), `class_weight="balanced"`; umbral elegido por validación cruzada para precisión ≥ 0.8.
    - Etapa 2: regresión logística de 3 clases, entrenada solo con positivos.
    - Explicabilidad: se adjuntan los ejemplos etiquetados más parecidos (similitud coseno).
-6. **Fusión** (`ml/src/analizar.py`). Modelo y regla coinciden → `origen="regla+modelo"`, se resalta el fragmento de la regla. Solo modelo sobre el umbral → se resalta la oración. Solo regla → alerta de alta precisión (`origen="regla"`). Citas: `desmiente` anula, `sin_postura` reduce la confianza.
-7. **Justificación** (`ml/src/plantillas.py`). Plantillas por categoría/familia que citan `criterios.md` y proponen una alternativa periodística. Sin texto generado libremente.
+6. **Fusión** (`ml/src/analyze.py`). Modelo y regla coinciden → `origen="regla+modelo"`, se resalta el fragmento de la regla. Solo modelo sobre el umbral → se resalta la oración. Solo regla → alerta de alta precisión (`origen="regla"`). Citas: `desmiente` anula, `sin_postura` reduce la confianza.
+7. **Justificación** (`ml/src/templates.py`). Plantillas por categoría/familia que citan `criterios.md` y proponen una alternativa periodística. Sin texto generado libremente.
 
 ## Evaluación
-`python -m ml.src.entrenar` compara con validación cruzada estratificada (5 folds):
+`python -m ml.src.train` compara con validación cruzada estratificada (5 folds):
 
 | Sistema | Descripción |
 |---|---|

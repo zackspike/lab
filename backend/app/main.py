@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from ml.src.analyze import analyze
 from ml.src.text import normalize, read_file
 
-app = FastAPI(title="Algoretica API")
+app = FastAPI(title="API - Proyecto basado en Algoretica Lab")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 

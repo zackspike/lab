@@ -1,4 +1,4 @@
-# Algoretica — Detector de revictimización en notas periodísticas
+# Proyecto basado en Algoretica Lab — Análisis crítico del discurso periodístico con perspectiva de género
 
 Hackathon de innovación social con IA. Prototipo/MVP con tiempo muy limitado: **prioriza simple y funcional sobre perfecto**.
 Haz tareas pequeñas y verificables, y un `git commit` después de cada una.

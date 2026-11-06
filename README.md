@@ -1,5 +1,5 @@
-# Algoretica
-Detector de revictimización y violencia de género en notas periodísticas (hackathon).
+# Proyecto basado en Algoretica Lab
+Herramienta de análisis crítico del discurso periodístico con perspectiva de género: detecta revictimización y otras formas de violencia en notas periodísticas (hackathon).
 Ver `CLAUDE.md` para contexto y arquitectura, y `docs/` para criterios y contrato de la API.
 
 ## Arranque rápido

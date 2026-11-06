@@ -59,6 +59,47 @@ def _row(name, y, pred, folds) -> str:
             f"{m[2]:.2f} ± {s[2]:.2f} | {macro:.2f} |")
 
 
+def _pooled(y_true: np.ndarray, y_pred: np.ndarray) -> str:
+    p, r, f, _ = precision_recall_fscore_support(y_true, y_pred, average="binary", zero_division=0)
+    return f"{p:.2f} | {r:.2f} | {f:.2f}"
+
+
+def _by_source(df, systems: dict[str, np.ndarray]) -> str:
+    lines = ["| Fuente | Oraciones | Positivos | Sistema | Precisión | Recall | F1 |", "|---|---|---|---|---|---|---|"]
+    for src, idx in df.groupby("fuente").groups.items():
+        y = df.loc[idx, "categoria"].to_numpy() != NONE
+        warn = " ⚠️ no concluyente" if y.sum() < 15 else ""
+        for name, pred in systems.items():
+            lines.append(f"| {src} | {len(idx)} | {int(y.sum())}{warn} | {name} | {_pooled(y, pred[idx] != NONE)} |")
+    return "\n".join(lines)
+
+
+def _headlines() -> str:
+    from ml.src import headline
+
+    hd = model.load_dataset(headlines=True)
+    lines = ["| Fuente | Titulares | Sensacionalistas | Precisión | Recall | F1 |", "|---|---|---|---|---|---|"]
+    for src, g in hd.groupby("fuente"):
+        y = (g["categoria"] != NONE).to_numpy()
+        pred = np.array([bool(headline.find(t)) for t in g["texto"]])
+        lines.append(f"| {src} | {len(g)} | {int(y.sum())} | {_pooled(y, pred)} |")
+    return "\n".join(lines)
+
+
+def _quotes(df) -> str:
+    from ml.src.quotes import is_quote
+
+    label = df["postura_cita"].fillna("").replace("", "no_cita")
+    lines = ["| Fuente | Detección de cita (exactitud, todas las oraciones) | Postura correcta en oraciones problemáticas citadas |",
+             "|---|---|---|"]
+    for src, idx in df.groupby("fuente").groups.items():
+        det = (np.array([is_quote(t) for t in df.loc[idx, "texto"]]) == (label[idx] != "no_cita")).mean()
+        prob = idx[(df.loc[idx, "categoria"] != NONE) & (label[idx] != "no_cita")]
+        acc = f"{(label[prob] == df.loc[prob, 'stance']).mean():.2f} ({len(prob)})" if len(prob) else "— (0)"
+        lines.append(f"| {src} | {det:.2f} ({len(idx)}) | {acc} |")
+    return "\n".join(lines)
+
+
 def run() -> str:
     df = model.load_dataset()
     cats = df["categoria"].to_numpy()
@@ -89,14 +130,14 @@ def run() -> str:
     cm_md = "| real \\ predicho | " + " | ".join(LABELS) + " |\n|" + "---|" * (len(LABELS) + 1) + "\n"
     cm_md += "\n".join(f"| {l} | " + " | ".join(map(str, r)) + " |" for l, r in zip(LABELS, cm))
 
-    labeled_stance = df["postura_cita"].fillna("no_cita").replace("", "no_cita")
-    quoted = labeled_stance != "no_cita"
-    stance_acc = (labeled_stance[quoted] == df["stance"][quoted]).mean() if quoted.any() else float("nan")
+    by_source = _by_source(df, {"Solo reglas": _rules_predict(inp), "Híbrido (umbral 0.5)": _final(proba_h, cat_h, 0.5),
+                                "Sistema final": final})
 
-    fp = df[(final != NONE) & (cats == NONE)]
-    fn = df[(final == NONE) & (cats != NONE)]
-    errors = lambda d, col: "\n".join(f"- {t} _(real: {c}, pred: {p})_" for t, c, p in
-                                      zip(d["texto"][:10], d["categoria"][:10], col[:10])) or "- (ninguno)"
+    def errors(mask) -> str:
+        d = df.assign(pred=final)[mask]
+        d = d.sort_values("fuente", key=lambda s: s == "semilla_sintetica")  # real notes first
+        return "\n".join(f"- [{r.fuente}] {r.texto} _(real: {r.categoria}, pred: {r.pred})_"
+                         for r in d.head(10).itertuples()) or "- (ninguno)"
 
     # final model on all data
     s1, s2 = model.fit(X_hybrid, cats)
@@ -118,16 +159,26 @@ Umbral elegido para precisión ≥ {model.TARGET_PRECISION}: **{threshold:.3f}**
 ## Matriz de confusión (sistema final)
 {cm_md}
 
-## Postura ante citas (heurística vs etiqueta)
-Exactitud en {int(quoted.sum())} citas etiquetadas: **{stance_acc:.2f}**
+## Por fuente (predicciones fuera de fold, agrupadas)
+La semilla sintética la escribió el equipo junto con las reglas: sus cifras son optimistas. Las notas reales son la medida que importa.
 
-## Falsos positivos (hasta 10)
-{errors(fp, final[(final != NONE) & (cats == NONE)])}
+{by_source}
 
-## Falsos negativos (hasta 10)
-{errors(fn, final[(final == NONE) & (cats != NONE)])}
+## Titulares (sensacionalismo)
+{_headlines()}
 
-> Con un dataset pequeño y sintético estas cifras son orientativas; se recalculan al añadir notas reales etiquetadas.
+## Citas
+{_quotes(df)}
+
+La postura solo se evalúa en oraciones problemáticas, donde cambia el resultado (criterio en `docs/criterios.md`).
+
+## Falsos positivos (hasta 10, primero notas reales)
+{errors((final != NONE) & (cats == NONE))}
+
+## Falsos negativos (hasta 10, primero notas reales)
+{errors((final == NONE) & (cats != NONE))}
+
+> Con un dataset pequeño estas cifras son orientativas; se recalculan al añadir notas reales etiquetadas.
 """
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(report, encoding="utf-8")

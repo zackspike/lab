@@ -36,17 +36,21 @@ def embed(texts: list[str]) -> np.ndarray:
 
 # ---------- data ----------
 
-def load_dataset(paths: list[Path] | None = None) -> pd.DataFrame:
-    """Body sentences from every labeled CSV (except the empty template), with previous-sentence context."""
+def load_dataset(paths: list[Path] | None = None, headlines: bool = False) -> pd.DataFrame:
+    """Sentences from every labeled CSV (except the empty template), with previous-sentence context.
+
+    Body only by default; headlines=True returns only the headline rows. `fuente` = source file stem.
+    """
     paths = paths or [p for p in sorted(LABELED_DIR.glob("*.csv")) if p.name != "por_etiquetar.csv"]
-    df = pd.concat([pd.read_csv(p, encoding="utf-8-sig", dtype=str) for p in paths], ignore_index=True)
+    df = pd.concat([pd.read_csv(p, encoding="utf-8-sig", dtype=str).assign(fuente=p.stem) for p in paths],
+                   ignore_index=True)
     df["categoria"] = df["categoria"].fillna("").str.strip().replace("", NONE)
     df["idx"] = df["idx"].astype(int)
     df = df.sort_values(["nota", "idx"]).reset_index(drop=True)
     df["prev"] = df.groupby("nota")["texto"].shift(1).fillna("")
     df["stance"] = [quotes.stance(g["texto"].tolist(), i)
                     for _, g in df.groupby("nota", sort=False) for i in range(len(g))]
-    return df[df["es_titulo"].astype(int) == 0].reset_index(drop=True)
+    return df[(df["es_titulo"].astype(int) == 1) == headlines].reset_index(drop=True)
 
 
 # ---------- features ----------

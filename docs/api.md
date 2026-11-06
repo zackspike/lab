@@ -25,8 +25,10 @@ Salida:
 }
 ```
 - `inicio`/`fin`: offsets de caracteres sobre `texto` (fin exclusivo).
-- `origen`: `regla` | `modelo`.
-- `categoria`: `revictimizacion | discriminacion | estigmatizacion | justificacion_agresor | sensacionalismo`.
+- `origen`: `regla` | `modelo` | `regla+modelo`.
+- `categoria`: `revictimizacion | justificacion_agresor | discriminacion_estigmatizacion | sensacionalismo` (`sensacionalismo` solo en el titular).
+- `postura_cita` (opcional): `avala | sin_postura | desmiente` cuando el fragmento está dentro de una cita.
+- `similares` (opcional): lista de oraciones etiquetadas parecidas, cuando `origen` incluye `modelo`.
 
 ## GET /api/health
 `{"status": "ok"}`

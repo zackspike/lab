@@ -28,9 +28,9 @@ def analyze(text: str) -> list[dict]:
     doc, sentences = segment(text)
     out: list[dict] = []
 
-    for s in (s for s in sentences if s.is_headline):
-        for a, b, reasons in headline.find(s.text):
-            out.append({"texto": text[s.start + a:s.start + b], "inicio": s.start + a, "fin": s.start + b,
+    if any(s.is_headline for s in sentences):  # whole first line: spaCy may split it ("🔵 [NOMBRE] LE ROGÓ…")
+        for a, b, reasons in headline.find(text[:text.find("\n")]):
+            out.append({"texto": text[a:b], "inicio": a, "fin": b,
                         "categoria": "sensacionalismo", **render_headline(reasons),
                         "confianza": RULE_CONFIDENCE, "origen": "regla"})
 

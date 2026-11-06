@@ -24,7 +24,7 @@ Salida:
   ]
 }
 ```
-- `inicio`/`fin`: offsets de caracteres sobre `texto` (fin exclusivo).
+- `inicio`/`fin`: offsets sobre `texto` en **unidades UTF-16** (fin exclusivo), es decir, `texto.slice(inicio, fin)` en JavaScript. Un emoji cuenta como 2. (Dentro de `ml.src.analyze` los offsets son en code points de Python; el backend los convierte.)
 - `origen`: `regla` | `modelo` | `regla+modelo`.
 - `categoria`: `revictimizacion | justificacion_agresor | discriminacion_estigmatizacion | sensacionalismo` (`sensacionalismo` solo en el titular).
 - `postura_cita` (opcional): `avala | sin_postura | desmiente` cuando el fragmento está dentro de una cita.

@@ -13,12 +13,20 @@ class Entrada(BaseModel):
     texto: str
 
 
+def _utf16(text: str, idx: int) -> int:
+    return len(text[:idx].encode("utf-16-le")) // 2
+
+
 def _respond(text: str):
     text = normalize(text)
     if not text:
         raise HTTPException(400, "Texto vacío")
+    fragments = analyze(text)
+    # Python offsets are code points; JS String.slice uses UTF-16 units (emojis count as 2)
+    for f in fragments:
+        f["inicio"], f["fin"] = _utf16(text, f["inicio"]), _utf16(text, f["fin"])
     # offsets refer to the normalized text, so return that same text
-    return {"texto": text, "fragmentos": analyze(text)}
+    return {"texto": text, "fragmentos": fragments}
 
 
 @app.get("/api/health")

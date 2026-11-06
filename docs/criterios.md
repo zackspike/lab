@@ -34,8 +34,19 @@ Cuando la nota reproduce lo dicho por otra persona (entre comillas, "según X", 
 |---|---|---|
 | `avala` | El narrador repite o adopta la afirmación fuera de la cita | Se marca normalmente |
 | `sin_postura` | La nota reproduce la cita sin contrastar ni comentar | Se marca con confianza reducida: "la nota reproduce sin contrastar" |
-| `desmiente` | La nota la contradice o contextualiza ("sin embargo", "especialistas advierten", "la fiscalía descartó") | No se marca |
+| `desmiente` | La nota la contradice o contextualiza **en la misma oración o en la siguiente** ("sin embargo", "especialistas advierten", "la fiscalía descartó") | No se marca |
 | `no_cita` | La oración no es una cita | — |
+
+- Un contraste que llega más tarde no anula la reproducción: idealizar al agresor sigue siendo problemático aunque la nota lo matice párrafos después.
+- Citar **datos** ("según datos recabados", "de acuerdo con los reportes") no es citar a una persona. Tampoco lo es la referencia del medio a sí mismo ("como informamos").
+
+## Sensacionalismo en el titular
+Todo lo que se marca en el titular sale como `sensacionalismo`; la justificación indica el motivo:
+- **Léxico** dramatizante: "macabro", "brutal", "tragedia", "fatal desenlace", "pareja ideal", "difícil de creer"…
+- **Reglas del cuerpo** aplicadas al titular: "investigan posible crimen pasional".
+- **Ortografía disfrazada** de palabras violentas para evadir moderación: "As3sin4d4".
+- **Emojis** de armas, sangre o impacto: 🔫 🔪 🩸 💀 😱.
+- **Mayúsculas** en la mayor parte del titular.
 
 ## Patrones iniciales (para `ml/src/rules.py`)
 - Culpa a la víctima: "por andar sola", "vestía provocativamente", "se lo buscó", "estaba en un lugar indebido".
@@ -54,6 +65,6 @@ Cuando la nota reproduce lo dicho por otra persona (entre comillas, "según X", 
 - Columnas: `id, nota, idx, es_titulo, texto, categoria, fragmento, postura_cita, justificacion, etiquetador`.
   - `categoria`: uno de los identificadores de arriba (vacío = `ninguna`).
   - `fragmento`: copia exacta del trozo problemático (opcional; vacío = toda la oración).
-  - `postura_cita`: `no_cita`, `avala`, `sin_postura` o `desmiente`.
-- Anonimizar: reemplazar nombres reales de víctimas por `[NOMBRE]` antes de commitear.
+  - `postura_cita`: `no_cita`, `avala`, `sin_postura` o `desmiente`. **Obligatoria solo en oraciones problemáticas** (es donde cambia el resultado); en las demás puede quedar vacía.
+- Anonimizar antes de commitear: nombres de víctimas **y de agresores** → `[NOMBRE]`; lugares de trabajo → `[LUGAR]`; domicilios → `[DIRECCIÓN]`; placas → `[PLACAS]`. El nombre del archivo en `raw/` se usa como id de la nota: no debe contener nombres.
 - Dos personas etiquetan una muestra común; se reporta la kappa de Cohen (`python -m ml.src.train --kappa a.csv b.csv`).
